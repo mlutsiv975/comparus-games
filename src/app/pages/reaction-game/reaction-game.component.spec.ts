@@ -6,18 +6,6 @@ import { GameBoardColComponent } from '../../components/reaction-game/game-board
 import { ReactionGameModalComponent } from '../../components/shared/modal/reaction-game-modal/reaction-game-modal.component';
 import { GameState } from '../../utils/reaction-game/game-state';
 import { of, Subject } from 'rxjs';
-import { By } from '@angular/platform-browser';
-
-class MockGameBoardColComponent {
-  state = 'pristine';
-  activate() {
-    this.state = 'active';
-  }
-  reset() {
-    this.state = 'pristine';
-  }
-  ngOnInit() {}
-}
 
 describe('ReactionGameComponent', () => {
   let component: ReactionGameComponent;
