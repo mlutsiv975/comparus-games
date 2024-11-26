@@ -1,8 +1,8 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Subscription, timer} from 'rxjs';
-import {GameService} from '../../../services/reaction-game/game-service/game.service';
-import {NgClass} from '@angular/common';
-import {CellState} from '../../../utils/reaction-game/cell-state';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription, timer } from 'rxjs';
+import { GameService } from '../../../services/reaction-game/game-service/game.service';
+import { NgClass } from '@angular/common';
+import { CellState } from '../../../utils/reaction-game/cell-state';
 
 @Component({
   selector: 'app-game-board-col',
@@ -19,7 +19,7 @@ export class GameBoardColComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.gameService.registerCell(this);
 
-    this.gameService.getCellActivation$().subscribe(cell => {
+    this.gameService.getCellActivation$().subscribe((cell) => {
       if (cell === this) {
         this.activate();
       }

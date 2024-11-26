@@ -4,11 +4,12 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: '/reaction-game',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     title: 'Reaction Game',
-    loadComponent: () => import('./pages/reaction-game/reaction-game.component').then(c => c.ReactionGameComponent),
+    loadComponent: () =>
+      import('./pages/reaction-game/reaction-game.component').then((c) => c.ReactionGameComponent),
     path: 'reaction-game',
-  }
+  },
 ];

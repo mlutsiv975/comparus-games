@@ -1,16 +1,14 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {NgClass} from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-modal-base',
-  imports: [
-    NgClass
-  ],
+  imports: [NgClass],
   templateUrl: './modal-base.component.html',
-  styleUrl: './modal-base.component.scss'
+  styleUrl: './modal-base.component.scss',
 })
 export class ModalBaseComponent {
-  @Input() title: string = '';
+  @Input() title = '';
   @Input() buttons: { text: string; class: string; action: string }[] = [];
   @Output() close = new EventEmitter<void>();
   @Output() buttonClick = new EventEmitter<string>();

@@ -10,10 +10,7 @@
     @if (buttons.length > 0) {
       <div class="modal-footer">
         @for (button of buttons; track button) {
-          <button
-            [ngClass]="button.class"
-            (click)="onButtonClick(button)"
-          >
+          <button [ngClass]="button.class" (click)="onButtonClick(button)">
             {{ button.text }}
           </button>
         }

@@ -25,7 +25,7 @@ describe('ReactionGameComponent', () => {
       'startGame',
       'registerCell',
       'getCellActivation$',
-      'getReset$'
+      'getReset$',
     ]);
 
     mockGameService.getGameState$.and.returnValue(gameState$.asObservable());
@@ -38,9 +38,9 @@ describe('ReactionGameComponent', () => {
         ReactionGameComponent,
         ScoreBoardComponent,
         ReactionGameModalComponent,
-        GameBoardColComponent
+        GameBoardColComponent,
       ],
-      providers: [{ provide: GameService, useValue: mockGameService }]
+      providers: [{ provide: GameService, useValue: mockGameService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ReactionGameComponent);

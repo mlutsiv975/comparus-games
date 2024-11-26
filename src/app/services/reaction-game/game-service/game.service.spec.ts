@@ -1,10 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
 import { GameService } from './game.service';
-import {GameState} from '../../../utils/reaction-game/game-state';
-import {REACTION_GAME_CONFIG} from '../../../utils/reaction-game/config';
-import {GameBoardColComponent} from '../../../components/reaction-game/game-board-col/game-board-col.component';
-import {CellState} from '../../../utils/reaction-game/cell-state';
+import { GameState } from '../../../utils/reaction-game/game-state';
+import { REACTION_GAME_CONFIG } from '../../../utils/reaction-game/config';
+import { CellState } from '../../../utils/reaction-game/cell-state';
 
 describe('GameService', () => {
   let service: GameService;
@@ -30,7 +29,7 @@ describe('GameService', () => {
     cell.state = CellState.Active;
 
     service.resetGame();
-    service.getGameState$().subscribe(state => {
+    service.getGameState$().subscribe((state) => {
       expect(state).toBe(GameState.Ready);
     });
     expect(cell.reset).toHaveBeenCalled();
@@ -54,7 +53,7 @@ describe('GameService', () => {
     service['score$'].next(score);
 
     service.handleCellCompletion(true);
-    service.getGameState$().subscribe(state => {
+    service.getGameState$().subscribe((state) => {
       expect(state).toBe(GameState.Finished);
     });
   });

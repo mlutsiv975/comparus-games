@@ -1,14 +1,12 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {GameScore} from '../../../interfaces/ reaction-game/reaction-game';
-import {ModalBaseComponent} from '../../shared/modal/modal-base/modal-base.component';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { GameScore } from '../../../interfaces/ reaction-game/reaction-game';
+import { ModalBaseComponent } from '../../shared/modal/modal-base/modal-base.component';
 
 @Component({
   selector: 'app-reaction-game-modal',
-  imports: [
-    ModalBaseComponent
-  ],
+  imports: [ModalBaseComponent],
   templateUrl: './reaction-game-modal.component.html',
-  styleUrl: './reaction-game-modal.component.scss'
+  styleUrl: './reaction-game-modal.component.scss',
 })
 export class ReactionGameModalComponent {
   @Input() score!: GameScore;
@@ -34,8 +32,8 @@ export class ReactionGameModalComponent {
 
   getTitle(): string {
     if (this.getWinner() === 'player') {
-      return '🎉 Congratulations! You Won! 🎉'
+      return '🎉 Congratulations! You Won! 🎉';
     }
-    return '💻 The Computer Won! Better luck next time. 💻'
+    return '💻 The Computer Won! Better luck next time. 💻';
   }
 }

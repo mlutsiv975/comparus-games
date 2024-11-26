@@ -1,4 +1,4 @@
 export interface GameScore {
-  player: number,
-  computer: number,
+  player: number;
+  computer: number;
 }

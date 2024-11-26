@@ -8,7 +8,7 @@ describe('ReactionGameModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactionGameModalComponent, ModalBaseComponent]
+      imports: [ReactionGameModalComponent, ModalBaseComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ReactionGameModalComponent);

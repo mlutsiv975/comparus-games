@@ -1,4 +1,6 @@
 <div
+  (keyup.enter)="onClick()"
+  tabindex="0"
   class="cell"
   [ngClass]="getClassForState()"
   (click)="onClick()"

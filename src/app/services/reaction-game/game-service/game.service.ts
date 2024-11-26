@@ -1,17 +1,17 @@
-import {Injectable} from '@angular/core';
-import {GameBoardColComponent} from '../../../components/reaction-game/game-board-col/game-board-col.component';
-import {BehaviorSubject, Subject} from 'rxjs';
-import {GameScore} from '../../../interfaces/ reaction-game/reaction-game';
-import {CellState} from '../../../utils/reaction-game/cell-state';
-import {REACTION_GAME_CONFIG} from '../../../utils/reaction-game/config';
-import {GameState} from '../../../utils/reaction-game/game-state';
+import { Injectable } from '@angular/core';
+import { GameBoardColComponent } from '../../../components/reaction-game/game-board-col/game-board-col.component';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { GameScore } from '../../../interfaces/ reaction-game/reaction-game';
+import { CellState } from '../../../utils/reaction-game/cell-state';
+import { REACTION_GAME_CONFIG } from '../../../utils/reaction-game/config';
+import { GameState } from '../../../utils/reaction-game/game-state';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GameService {
   private cells = new BehaviorSubject<GameBoardColComponent[]>([]);
-  private duration: number = 1000;
+  private duration = 1000;
 
   private gameState$ = new BehaviorSubject<GameState>(GameState.Ready);
   private score$ = new BehaviorSubject<GameScore>({ player: 0, computer: 0 });
