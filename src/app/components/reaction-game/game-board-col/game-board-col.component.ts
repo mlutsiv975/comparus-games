@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Subscription, timer} from 'rxjs';
 import {GameService} from '../../../services/reaction-game/game-service/game.service';
 import {NgClass} from '@angular/common';
@@ -6,13 +6,11 @@ import {CellState} from '../../../utils/reaction-game/cell-state';
 
 @Component({
   selector: 'app-game-board-col',
-  imports: [
-    NgClass
-  ],
+  imports: [NgClass],
   templateUrl: './game-board-col.component.html',
-  styleUrl: './game-board-col.component.scss'
+  styleUrl: './game-board-col.component.scss',
 })
-export class GameBoardColComponent implements OnInit {
+export class GameBoardColComponent implements OnInit, OnDestroy {
   state: CellState = CellState.Pristine;
   private timerSubscription: Subscription | null = null;
 
@@ -36,7 +34,6 @@ export class GameBoardColComponent implements OnInit {
     if (this.state !== CellState.Pristine) return;
 
     this.state = CellState.Active;
-
     const duration = this.gameService.getDuration();
     this.timerSubscription = timer(duration).subscribe(() => {
       if (this.state === CellState.Active) {
@@ -56,6 +53,10 @@ export class GameBoardColComponent implements OnInit {
 
   reset() {
     this.state = CellState.Pristine;
+    this.timerSubscription?.unsubscribe();
+  }
+
+  ngOnDestroy() {
     this.timerSubscription?.unsubscribe();
   }
 

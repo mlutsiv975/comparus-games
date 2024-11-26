@@ -3,7 +3,7 @@ import { ReactionGameComponent } from './reaction-game.component';
 import { GameService } from '../../services/reaction-game/game-service/game.service';
 import { ScoreBoardComponent } from '../../components/reaction-game/score-board/score-board.component';
 import { GameBoardColComponent } from '../../components/reaction-game/game-board-col/game-board-col.component';
-import { ReactionGameModalComponent } from '../../components/shared/modal/reaction-game-modal/reaction-game-modal.component';
+import { ReactionGameModalComponent } from '../../components/reaction-game/reaction-game-modal/reaction-game-modal.component';
 import { GameState } from '../../utils/reaction-game/game-state';
 import { of, Subject } from 'rxjs';
 

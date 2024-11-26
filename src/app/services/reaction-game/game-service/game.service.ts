@@ -7,10 +7,10 @@ import {REACTION_GAME_CONFIG} from '../../../utils/reaction-game/config';
 import {GameState} from '../../../utils/reaction-game/game-state';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GameService {
-  private cells: GameBoardColComponent[] = [];
+  private cells = new BehaviorSubject<GameBoardColComponent[]>([]);
   private duration: number = 1000;
 
   private gameState$ = new BehaviorSubject<GameState>(GameState.Ready);
@@ -19,7 +19,8 @@ export class GameService {
   private reset$ = new Subject<void>();
 
   registerCell(cell: GameBoardColComponent) {
-    this.cells.push(cell);
+    const currentCells = this.cells.getValue();
+    this.cells.next([...currentCells, cell]);
   }
 
   startGame(duration: number) {
@@ -30,7 +31,7 @@ export class GameService {
   }
 
   resetGame() {
-    this.cells.forEach(cell => cell.reset());
+    this.cells.getValue().forEach((cell) => cell.reset());
     this.score$.next({ player: 0, computer: 0 });
     this.gameState$.next(GameState.Ready);
     this.reset$.next();
@@ -47,11 +48,10 @@ export class GameService {
 
   handleCellCompletion(success: boolean) {
     const score = this.score$.getValue();
-    if (success) {
-      this.score$.next({ ...score, player: score.player + 1 });
-    } else {
-      this.score$.next({ ...score, computer: score.computer + 1 });
-    }
+    this.score$.next({
+      player: success ? score.player + 1 : score.player,
+      computer: success ? score.computer : score.computer + 1,
+    });
 
     if (this.isGameOver()) {
       this.finishGame();
@@ -81,8 +81,8 @@ export class GameService {
   }
 
   private getRandomPristineCell(): GameBoardColComponent | null {
-    const pristineCells = this.cells.filter(cell => cell.state === CellState.Pristine);
-    if (pristineCells.length === 0) return null;
+    const pristineCells = this.cells.getValue().filter((cell) => cell.state === CellState.Pristine);
+    if (!pristineCells.length) return null;
     const randomIndex = Math.floor(Math.random() * pristineCells.length);
     return pristineCells[randomIndex];
   }

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactionGameModalComponent } from './reaction-game-modal.component';
-import { ModalBaseComponent } from '../modal-base/modal-base.component';
+import { ModalBaseComponent } from '../../shared/modal/modal-base/modal-base.component';
 
 describe('ReactionGameModalComponent', () => {
   let component: ReactionGameModalComponent;

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {GameScore} from '../../../../interfaces/ reaction-game/reaction-game';
-import {ModalBaseComponent} from '../modal-base/modal-base.component';
+import {GameScore} from '../../../interfaces/ reaction-game/reaction-game';
+import {ModalBaseComponent} from '../../shared/modal/modal-base/modal-base.component';
 
 @Component({
   selector: 'app-reaction-game-modal',

@@ -21,7 +21,7 @@ describe('GameService', () => {
   it('should register a cell', () => {
     const cell = jasmine.createSpyObj('GameBoardColComponent', ['reset']);
     service.registerCell(cell);
-    expect(service['cells'].length).toBe(1);
+    expect(service['cells'].getValue().length).toBe(1);
   });
 
   it('should reset the game and all cells', () => {

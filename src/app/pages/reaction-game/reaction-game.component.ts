@@ -5,7 +5,7 @@ import {ScoreBoardComponent} from '../../components/reaction-game/score-board/sc
 import {GameBoardColComponent} from '../../components/reaction-game/game-board-col/game-board-col.component';
 import {
   ReactionGameModalComponent
-} from '../../components/shared/modal/reaction-game-modal/reaction-game-modal.component';
+} from '../../components/reaction-game/reaction-game-modal/reaction-game-modal.component';
 import {GameState} from '../../utils/reaction-game/game-state';
 import {Subject, takeUntil} from 'rxjs';
 import {REACTION_GAME_CONFIG} from '../../utils/reaction-game/config';
@@ -57,7 +57,7 @@ export class ReactionGameComponent implements OnInit, OnDestroy {
   restartGame() {
     this.showModal = false;
     this.gameService.resetGame();
-    this.gameService.startGame(this.duration)
+    this.gameService.startGame(this.duration);
   }
 
   exitGame() {
