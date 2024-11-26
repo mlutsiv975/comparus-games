@@ -1,0 +1,16 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.row {
+  display: flex;
+  gap: 6px;
+}
+button {
+  margin-top: 20px;
+}
+.score {
+  margin-top: 10px;
+  font-size: 18px;
+}

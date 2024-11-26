@@ -1,0 +1,25 @@
+<div>
+  <label for="duration">Duration (ms): </label>
+  <input id="duration" type="number" [(ngModel)]="duration" [disabled]="currentGameState !== gameStateEnum.Ready" />
+  <button (click)="startOrResetGame()">
+    {{ buttonLabel }}
+  </button>
+</div>
+<app-score-board [score]="score"></app-score-board>
+<div class="grid">
+  @for (row of rows; track row;) {
+    <div class="row">
+      @for (column of columns; track column) {
+        <app-game-board-col ></app-game-board-col>
+      }
+    </div>
+  }
+</div>
+
+@if (showModal) {
+  <app-reaction-game-modal
+    [score]="score"
+    (restart)="restartGame()"
+    (exit)="exitGame()"
+  ></app-reaction-game-modal>
+}

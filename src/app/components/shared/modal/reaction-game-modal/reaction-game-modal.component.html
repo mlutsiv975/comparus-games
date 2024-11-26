@@ -1,0 +1,16 @@
+<app-modal-base
+  [title]="getTitle()"
+  [buttons]="[
+        { text: 'Restart Game', class: 'primary', action: 'restart' },
+        { text: 'Exit', class: 'secondary', action: 'exit' }
+      ]"
+  (close)="onClose()"
+  (buttonClick)="onButtonClick($event)"
+>
+  <div class="game-results">
+    <div class="score-summary">
+      <p><strong>Player Score:</strong> {{ score.player }}</p>
+      <p><strong>Computer Score:</strong> {{ score.computer }}</p>
+    </div>
+  </div>
+</app-modal-base>

@@ -1,0 +1,18 @@
+.game-results {
+  text-align: center;
+}
+
+.score-summary {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.game-results p {
+  margin: 0;
+}
+
+.game-results p:first-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+}

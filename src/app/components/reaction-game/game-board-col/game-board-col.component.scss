@@ -1,0 +1,22 @@
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background-color: #4169e1;
+  transition: background-color 0.5s, transform 0.2s ease;
+
+  &.active {
+    background-color: #ffeb3b;
+    animation: blink 1s infinite alternate;
+  }
+  &.success {
+    background-color: #4caf50;
+    animation: success 1s ease-in-out;
+  }
+  &.invalid {
+    background-color: #f44336;
+    animation: shake 0.5s;
+  }
+}
+
